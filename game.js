@@ -12,25 +12,26 @@ function computerPlay(){
     }
 }
 
-const computerSelection = computerPlay();
-
 function gamePlay(playerSelection, computerSelection){
     
+    //ComputerPlay returns Case sensitive, player1 doesn't!
+
     if(playerSelection ===  'rock'){
         if(computerSelection === 'Rock'){ alert('DRAW!'); return 'draw';}
         else if(computerSelection === 'Scissors'){ alert('You WIN!'); return 'win1';}
         else if(computerSelection === 'Paper'){ alert('You Lose!'); return 'lose2';}
+    
     }else if(playerSelection ===  'scissors'){
         if(computerSelection === 'Rock'){ alert('You Lose!'); return 'lose2';}
         else if(computerSelection === 'Scissors'){ alert('DRAW!'); return 'draw';}
         else if(computerSelection === 'Paper'){ alert('You WIN!'); return 'win1';}
+    
     }else if(playerSelection ===  'paper'){
         if(computerSelection === 'Rock'){ alert('You WIN!'); return 'win1';}
         else if(computerSelection === 'Scissors'){ alert('You Lose!'); return 'lose2';}
         else if(computerSelection === 'Paper'){ alert('DRAW!'); return 'draw';}    
     }
 }
-   
 
 function game(times){
 
@@ -47,7 +48,7 @@ function game(times){
     
     let resultGame = gamePlay(playerSelection, computerSelection);
     
-    //Win counter
+    //Win-Lose counter
     if(resultGame === 'win1'){
         count1++;
     }else if(resultGame === 'lose2'){
@@ -56,7 +57,7 @@ function game(times){
         ties++;
     }
     i++;
-    } //end of Loop
+    } 
 
     //Final Score
     if(count1 > count2){
@@ -67,4 +68,7 @@ function game(times){
         console.log('Ended on draw, number of ties: '+ ties);
     }
 }
+
+const computerSelection = computerPlay();
+
 game(5);
